@@ -47,4 +47,4 @@ Hook that reject invalid json files::
 Links
 -----
 
-* `Fork me on GitHub <https://github.com/evvers/git-pre-commit-hook-utils`_
+* `Fork me on GitHub <https://github.com/evvers/git-pre-commit-hook-utils>`_
