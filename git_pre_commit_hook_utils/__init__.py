@@ -68,7 +68,7 @@ FileAtIndex = collections.namedtuple(
 )
 
 
-def files_at_index():
+def files_staged_for_commit():
     # see: git help diff-index
     # "RAW OUTPUT FORMAT" section
     diff_index_row_regex = re.compile(
