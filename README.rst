@@ -43,7 +43,8 @@ Hook that reject invalid json files::
         else:
             sys.exit(0)
 
+
 Links
 -----
 
-* `Fork me on GitHub <http://github.com/evvers/git-pre-commit-hook-utils`_
+* `Fork me on GitHub <https://github.com/evvers/git-pre-commit-hook-utils`_
