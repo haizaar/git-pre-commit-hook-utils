@@ -14,8 +14,8 @@ with these commands::
   $ pip install --upgrade git-pre-commit-hook-utils
   $ pip uninstall git-pre-commit-hook-utils
 
-Examples:
----------
+Examples
+--------
 
 Hook that reject commits with "big (>10Mib)" files::
 
