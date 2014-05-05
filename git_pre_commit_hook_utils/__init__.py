@@ -1,6 +1,7 @@
 import subprocess
 import collections
 import re
+import os.path
 
 
 ExecutionResult = collections.namedtuple(
@@ -66,6 +67,24 @@ FileAtIndex = collections.namedtuple(
     'FileAtIndex',
     'contents, size, mode, sha1, status, path'
 )
+
+
+def path_to_pre_commit_hook():
+    result = _execute(
+        [
+            'git',
+            'rev-parse',
+            '--git-dir',
+        ]
+    )
+    if result.status != 0:
+        raise RuntimeError(result.stderr)
+    else:
+        return os.path.join(
+            os.path.abspath(result.stdout.rstrip('\n')),
+            'hooks',
+            'pre-commit',
+        )
 
 
 def files_staged_for_commit():

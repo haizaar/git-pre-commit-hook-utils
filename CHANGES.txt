@@ -1,3 +1,9 @@
+**0.0.2**
+
+
+* Add path_to_precommit_hook_function
+
+
 **0.0.1**
 
 
