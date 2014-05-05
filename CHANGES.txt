@@ -2,6 +2,7 @@
 
 
 * Add path_to_precommit_hook_function
+* Update README.rst
 
 
 **0.0.1**

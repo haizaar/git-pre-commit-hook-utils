@@ -14,6 +14,13 @@ with these commands::
   $ pip install --upgrade git-pre-commit-hook-utils
   $ pip uninstall git-pre-commit-hook-utils
 
+Features:
+---------
+
+* Work fine with initial commit
+* Work fine with all filenames
+* Work with index contents instead of working copy
+
 Examples
 --------
 
