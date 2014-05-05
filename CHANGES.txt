@@ -1,7 +1,13 @@
+**0.0.3**
+
+
+* Rename path_to_pre_commit_hook to path_to_hook
+
+
 **0.0.2**
 
 
-* Add path_to_precommit_hook_function
+* Add path_to_pre_commit_hook function
 * Update README.rst
 
 

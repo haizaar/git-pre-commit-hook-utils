@@ -69,7 +69,7 @@ FileAtIndex = collections.namedtuple(
 )
 
 
-def path_to_pre_commit_hook():
+def path_to_hook():
     result = _execute(
         [
             'git',
