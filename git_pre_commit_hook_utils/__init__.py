@@ -63,10 +63,24 @@ def _size(sha):
     return int(cmd_out)
 
 
-FileAtIndex = collections.namedtuple(
-    'FileAtIndex',
-    'contents, size, mode, sha1, status, path'
-)
+class FileAtIndex(object):
+
+    def __init__(self, contents, size, mode, sha1, status, path):
+        self.contents = contents
+        self.size = size
+        self.mode = mode
+        self.sha1 = sha1
+        self.status = status
+        self.path = path
+
+    def is_python_contents(self):
+        return re.match(r'^#![^\n]*python', self.contents)
+
+    def is_python_path(self):
+        return self.path.endswith('.py')
+
+    def is_python_code(self):
+        return self.is_python_path() or self.is_python_contents()
 
 
 def path_to_hook():
