@@ -2,6 +2,7 @@ import subprocess
 import collections
 import re
 import os.path
+import fnmatch
 
 
 ExecutionResult = collections.namedtuple(
@@ -81,6 +82,10 @@ class FileAtIndex(object):
 
     def is_python_code(self):
         return self.is_python_path() or self.is_python_contents()
+
+    def is_fnmatch(self, pattern):
+        basename = os.path.basename(self.path)
+        return fnmatch.fnmatch(basename, pattern)
 
 
 def path_to_hook():
