@@ -14,7 +14,7 @@ def read(*parts):
 
 setup(
     name='git-pre-commit-hook-utils',
-    version='0.0.4',
+    version='0.0.5',
     description='utils for implementing git pre-commit hook',
     long_description=read('README.rst'),
     license='MIT',
