@@ -12,7 +12,7 @@ def test_git_mode():
 
 def test_with_empty_repo(tmpdir):
     os_environ = copy.deepcopy(os.environ)
-    os_environ['GIT_DIR'] = str(tmpdir)
+    os_environ['GIT_DIR'] = str(tmpdir) + '/.git'
     os_environ['GIT_WORK_TREE'] = str(tmpdir)
     env = scripttest.TestFileEnvironment(
         str(tmpdir),
@@ -21,7 +21,7 @@ def test_with_empty_repo(tmpdir):
         environ=os_environ,
     )
     env.writefile('empty_file', content='')
-    env.run('git', 'init')
+    env.run('git', 'init', str(tmpdir))
     env.run('git', 'add', 'empty_file')
     files_staged_for_commit = list(utils.files_staged_for_commit())
     assert len(files_staged_for_commit) == 1
@@ -30,6 +30,13 @@ def test_with_empty_repo(tmpdir):
     assert file_at_index.contents == ''
     assert file_at_index.size == 0
     assert file_at_index.status == 'A'
+    env.run('git', 'commit', '-m', 'Initial commit')
+    env.run('ln', '-s', 'empty_file', 'link_to_empty_file')
+    env.run('git', 'add', 'link_to_empty_file')
+    files_staged_for_commit = list(utils.files_staged_for_commit())
+    assert len(files_staged_for_commit) == 1
+    file_at_index = files_staged_for_commit[0]
+    assert file_at_index.is_symlink()
 
 
 def test_is_python_code_by_path():

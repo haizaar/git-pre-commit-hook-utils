@@ -69,7 +69,7 @@ class FileAtIndex(object):
     def __init__(self, contents, size, mode, sha1, status, path):
         self.contents = contents
         self.size = size
-        self.mode = mode
+        self.mode = GitMode(mode)
         self.sha1 = sha1
         self.status = status
         self.path = path
@@ -86,6 +86,9 @@ class FileAtIndex(object):
     def is_fnmatch(self, pattern):
         basename = os.path.basename(self.path)
         return fnmatch.fnmatch(basename, pattern)
+
+    def is_symlink(self):
+        return self.mode.is_symlink()
 
 
 def path_to_hook():
