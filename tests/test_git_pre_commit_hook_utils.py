@@ -4,6 +4,12 @@ import os
 import copy
 
 
+def test_git_mode():
+    m = utils.GitMode('120000')
+    assert m.is_symlink()
+    assert not m.is_gitlink()
+
+
 def test_with_empty_repo(tmpdir):
     os_environ = copy.deepcopy(os.environ)
     os_environ['GIT_DIR'] = str(tmpdir)

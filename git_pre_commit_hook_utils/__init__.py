@@ -139,3 +139,15 @@ def files_staged_for_commit():
             status,
             path
         )
+
+
+class GitMode(object):
+
+    def __init__(self, mode):
+        self.mode = mode
+
+    def is_symlink(self):
+        return self.mode.startswith('12')
+
+    def is_gitlink(self):
+        return self.mode.startswith('16')
