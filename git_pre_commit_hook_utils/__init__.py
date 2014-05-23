@@ -145,7 +145,7 @@ def files_staged_for_commit():
 
 
 class GitMode(object):
-
+    """See https://git.kernel.org/cgit/git/git.git/tree/Documentation/technical/index-format.txt#n63"""  # noqa
     def __init__(self, mode):
         self.mode = mode
 
