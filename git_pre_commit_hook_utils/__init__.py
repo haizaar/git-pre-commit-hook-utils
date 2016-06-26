@@ -49,7 +49,7 @@ def _contents(sha):
             'show',
             sha,
         ]
-    )
+    ).decode()
 
 
 def _size(sha):
@@ -103,7 +103,7 @@ def path_to_hook():
         raise RuntimeError(result.stderr)
     else:
         return os.path.join(
-            os.path.abspath(result.stdout.rstrip('\n')),
+            os.path.abspath(result.stdout.decode().rstrip('\n')),
             'hooks',
             'pre-commit',
         )
