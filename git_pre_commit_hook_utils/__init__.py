@@ -39,7 +39,7 @@ def _diff_index():
             '--diff-filter=AM',
             _current_commitish(),
         ]
-    )
+    ).decode()
 
 
 def _contents(sha):
